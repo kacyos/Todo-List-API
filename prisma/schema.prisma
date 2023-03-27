@@ -15,8 +15,10 @@ model User {
   email     String   @unique
   name      String
   lists     List[]
+  password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  @@map("users")
 }
 
 model List {
@@ -27,14 +29,16 @@ model List {
   userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  @@map("lists")
 }
 
 model Task {
-  id        String      @default(uuid()) @id
+  id        String   @default(uuid()) @id
   title     String
   completed Boolean  @default(false)
   list      List     @relation(fields: [listId], references: [id])
   listId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  @@map("tasks")
 }
