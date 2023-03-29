@@ -8,9 +8,9 @@ export function generateToken (name: string) {
   return token;
 }
 
-/* export function verifyToken (token: string) {
+export function verifyToken (token: string) {
   const decoded = jwt.verify(token, process.env.SECRET);
 
   return decoded;
-} */
+}
 
